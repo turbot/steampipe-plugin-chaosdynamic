@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/schema"
+	"time"
 )
 
 type DyntestConfig struct {
@@ -52,7 +52,7 @@ type configTable struct {
 func (t configTable) AsPluginTable() *plugin.Table {
 	res := &plugin.Table{Name: t.Name,
 		List: &plugin.ListConfig{
-			Hydrate: nullList,
+			Hydrate: t.buildListHydrate(),
 		}}
 	res.Columns = make([]*plugin.Column, len(t.Columns))
 	for i, c := range t.Columns {
@@ -64,38 +64,83 @@ func (t configTable) AsPluginTable() *plugin.Table {
 	return res
 }
 
-func nullList(ctx context.Context, data *plugin.QueryData, data2 *plugin.HydrateData) (interface{}, error) {
-	return nil, nil
+func (t configTable) buildListHydrate() plugin.HydrateFunc {
+	return func(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
+
+		for i := 0; i < 2; i++ {
+			d.StreamListItem(ctx, t.populateItem(i))
+		}
+		return nil, nil
+	}
+
 }
 
-var ConfigSchema = map[string]*schema.Attribute{
-	"tables": {
-		Type: schema.TypeList,
-		Elem: &schema.Attribute{
-			Type: schema.TypeMap,
-			AttrTypes: map[string]*schema.Attribute{
-				"name": {
-					Type: schema.TypeString,
-				},
-				"columns": {
-					Type: schema.TypeList,
-					Elem: &schema.Attribute{
+func (t configTable) populateItem(rowNumber int) map[string]interface{} {
 
-						Type: schema.TypeMap,
-						AttrTypes: map[string]*schema.Attribute{
-							"name": {
-								Type: schema.TypeString,
-							},
-							"type": {
-								Type: schema.TypeString,
-							},
-						},
-					},
-				},
-			},
-		},
-	},
+	row := make(map[string]interface{})
+	row["id"] = rowNumber
+	for _, column := range t.Columns {
+		var columnVal interface{}
+		switch column.getType() {
+		case proto.ColumnType_STRING:
+			columnVal = fmt.Sprintf("%s-%v", column.Name, rowNumber)
+			break
+		case proto.ColumnType_BOOL:
+			columnVal = rowNumber%2 == 0
+			break
+		case proto.ColumnType_DATETIME:
+			columnVal = time.Now()
+			break
+		case proto.ColumnType_INT:
+			columnVal = rowNumber
+			break
+		case proto.ColumnType_DOUBLE:
+			columnVal = float64(rowNumber)
+			break
+		case proto.ColumnType_CIDR:
+			columnVal = "10.0.0.10/32"
+			break
+		case proto.ColumnType_IPADDR:
+			columnVal = "10.0.0.2"
+			break
+		case proto.ColumnType_JSON:
+			columnVal = fmt.Sprintf(`{"Row": %d}`, rowNumber)
+			break
+		}
+		row[column.Name] = columnVal
+	}
+	return row
+
 }
+
+//var ConfigSchema = map[string]*schema.Attribute{
+//	"tables": {
+//		Type: schema.TypeList,
+//		Elem: &schema.Attribute{
+//			Type: schema.TypeMap,
+//			AttrTypes: map[string]*schema.Attribute{
+//				"name": {
+//					Type: schema.TypeString,
+//				},
+//				"columns": {
+//					Type: schema.TypeList,
+//					Elem: &schema.Attribute{
+//
+//						Type: schema.TypeMap,
+//						AttrTypes: map[string]*schema.Attribute{
+//							"name": {
+//								Type: schema.TypeString,
+//							},
+//							"type": {
+//								Type: schema.TypeString,
+//							},
+//						},
+//					},
+//				},
+//			},
+//		},
+//	},
+//}
 
 func ConfigInstance() interface{} {
 	return &DyntestConfig{}
