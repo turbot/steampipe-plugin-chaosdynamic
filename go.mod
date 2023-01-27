@@ -2,12 +2,9 @@ module github.com/turbot/steampipe-plugin-dyntest
 
 go 1.19
 
-replace github.com/turbot/steampipe-plugin-sdk/v5 => /Users/kai/Dev/github/turbot/steampipe-plugin-sdk
-
 require (
 	github.com/turbot/go-kit v0.5.0
-	// dynamic_aggregators
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.2.0-rc.0.0.20230119170951-d69f0d69547c
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.2.0-rc.2
 )
 
 require (
