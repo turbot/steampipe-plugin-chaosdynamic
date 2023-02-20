@@ -50,7 +50,8 @@ type configTable struct {
 }
 
 func (t configTable) AsPluginTable() *plugin.Table {
-	res := &plugin.Table{Name: t.Name,
+	res := &plugin.Table{
+		Name: t.Name,
 		List: &plugin.ListConfig{
 			Hydrate: t.buildListHydrate(),
 		}}
