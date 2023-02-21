@@ -18,6 +18,5 @@ It's important, but not particularly interesting for most Steampipe users.
 To download and install the latest chaos dynamic plugin:
 ```bash
 $ ./steampipe plugin install chaosdynamic
-Installing plugin chaosdynamic...
-$
+
 ```

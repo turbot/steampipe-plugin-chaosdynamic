@@ -1,10 +1,10 @@
 # Chaos Dynamic Plugin for Steampipe
 
-Use SQL to query users, clients, connections, keys and more from Chaos Dynamic.
+Steampipe plugin to test aggregation of dynamic plugins.
 
-- **[Get started →](https://hub.steampipe.io/plugins/turbot/chaos)**
+- **[Get started →](https://hub.steampipe.io/plugins/turbot/chaosdynamic)**
 - Community: [Slack Channel](https://join.slack.com/t/steampipe/shared_invite/zt-oij778tv-lYyRTWOTMQYBVAbtPSWs3g)
-- Get involved: [Issues](https://github.com/turbot/steampipe-plugin-chaos-dynamic/issues)
+- Get involved: [Issues](https://github.com/turbot/steampipe-plugin-chaosdynamic/issues)
 
 ## Quick start
 
@@ -56,8 +56,8 @@ Prerequisites:
 Clone:
 
 ```sh
-git clone https://github.com/turbot/steampipe-plugin-chaos-dynamic.git
-cd steampipe-plugin-chaos-dynamic
+git clone https://github.com/turbot/steampipe-plugin-chaosdynamic.git
+cd steampipe-plugin-chaosdynamic
 ```
 
 Build, which automatically installs the new version to your `~/.steampipe/plugins` directory:
@@ -87,9 +87,9 @@ Further reading:
 
 ## Contributing
 
-Please see the [contribution guidelines](https://github.com/turbot/steampipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/steampipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/steampipe-plugin-chaos/blob/main/LICENSE).
+Please see the [contribution guidelines](https://github.com/turbot/steampipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/steampipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/steampipe-plugin-chaosdynamic/blob/main/LICENSE).
 
 `help wanted` issues:
 
 - [Steampipe](https://github.com/turbot/steampipe/labels/help%20wanted)
-- [Chaos Dynamic Plugin](https://github.com/turbot/steampipe-plugin-chaos-dynamic/labels/help%20wanted)
+- [Chaos Dynamic Plugin](https://github.com/turbot/steampipe-plugin-chaosdynamic/labels/help%20wanted)

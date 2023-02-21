@@ -1,4 +1,4 @@
-module github.com/turbot/steampipe-plugin-chaos-dynamic
+module github.com/turbot/steampipe-plugin-chaosdynamic
 
 go 1.19
 

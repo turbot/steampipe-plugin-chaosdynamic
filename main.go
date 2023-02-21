@@ -1,7 +1,7 @@
 package main
 
 import (
-	chaos_dynamic "github.com/turbot/steampipe-plugin-chaos-dynamic/chaosdynamic"
+	chaos_dynamic "github.com/turbot/steampipe-plugin-chaosdynamic/chaosdynamic"
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
