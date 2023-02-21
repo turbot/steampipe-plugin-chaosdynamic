@@ -7,7 +7,7 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
-const pluginName = "steampipe-provider-chaos-dynamic"
+const pluginName = "steampipe-plugin-chaosdynamic"
 
 func Plugin(ctx context.Context) *plugin.Plugin {
 	p := &plugin.Plugin{

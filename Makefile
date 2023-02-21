@@ -1,3 +1,3 @@
 
 install:
-	go build -o  ~/.steampipe/plugins/hub.steampipe.io/plugins/turbot/chaos_dynamic@latest/steampipe-plugin-chaos-dynamic.plugin  *.go
+	go build -o  ~/.steampipe/plugins/hub.steampipe.io/plugins/turbot/chaosdynamic@latest/steampipe-plugin-chaosdynamic.plugin  *.go
