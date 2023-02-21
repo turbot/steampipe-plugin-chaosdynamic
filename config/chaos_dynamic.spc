@@ -1,5 +1,5 @@
 connection "dyntest"{
-  plugin = "dyntest"
+  plugin = "chaos_dynamic"
   tables = [
     {
       name    = "test1"

@@ -1,18 +1,19 @@
-package dyntest
+package chaos_dynamic
 
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
-	"time"
 )
 
-type DyntestConfig struct {
+type ChaosDynamicConfig struct {
 	Tables []configTable `hcl:"tables"`
 }
 
-func (d DyntestConfig) String() string {
+func (d ChaosDynamicConfig) String() string {
 	return fmt.Sprintf("TABLES: %v", d.Tables)
 }
 
@@ -144,16 +145,16 @@ func (t configTable) populateItem(rowNumber int) map[string]interface{} {
 //}
 
 func ConfigInstance() interface{} {
-	return &DyntestConfig{}
+	return &ChaosDynamicConfig{}
 }
 
-func getConfig(connection *plugin.Connection) DyntestConfig {
+func getConfig(connection *plugin.Connection) ChaosDynamicConfig {
 	if connection == nil || connection.Config == nil {
-		return DyntestConfig{}
+		return ChaosDynamicConfig{}
 	}
-	config, ok := connection.Config.(DyntestConfig)
+	config, ok := connection.Config.(ChaosDynamicConfig)
 	if !ok {
-		return DyntestConfig{}
+		return ChaosDynamicConfig{}
 	}
 	return config
 }
