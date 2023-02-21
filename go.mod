@@ -1,4 +1,4 @@
-module github.com/turbot/steampipe-plugin-dyntest
+module github.com/turbot/steampipe-plugin-chaos-dynamic
 
 go 1.19
 

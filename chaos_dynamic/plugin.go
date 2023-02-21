@@ -1,12 +1,13 @@
-package dyntest
+package chaos_dynamic
 
 import (
 	"context"
+
 	"github.com/turbot/go-kit/helpers"
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
-const pluginName = "steampipe-provider-dyntest"
+const pluginName = "steampipe-provider-chaos-dynamic"
 
 func Plugin(ctx context.Context) *plugin.Plugin {
 	p := &plugin.Plugin{
