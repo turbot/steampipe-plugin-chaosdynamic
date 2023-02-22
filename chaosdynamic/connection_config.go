@@ -88,28 +88,20 @@ func (t configTable) populateItem(rowNumber int) map[string]interface{} {
 		switch column.getType() {
 		case proto.ColumnType_STRING:
 			columnVal = fmt.Sprintf("%s-%v", column.Name, rowNumber)
-			break
 		case proto.ColumnType_BOOL:
 			columnVal = rowNumber%2 == 0
-			break
-		case proto.ColumnType_DATETIME:
+		case proto.ColumnType_TIMESTAMP:
 			columnVal = time.Now()
-			break
 		case proto.ColumnType_INT:
 			columnVal = rowNumber
-			break
 		case proto.ColumnType_DOUBLE:
 			columnVal = float64(rowNumber)
-			break
 		case proto.ColumnType_CIDR:
 			columnVal = "10.0.0.10/32"
-			break
 		case proto.ColumnType_IPADDR:
 			columnVal = "10.0.0.2"
-			break
 		case proto.ColumnType_JSON:
 			columnVal = fmt.Sprintf(`{"Row": %d}`, rowNumber)
-			break
 		}
 		row[column.Name] = columnVal
 	}
