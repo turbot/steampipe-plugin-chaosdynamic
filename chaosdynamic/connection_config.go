@@ -46,13 +46,15 @@ func (c configColumn) getType() proto.ColumnType {
 }
 
 type configTable struct {
-	Name    string         `hcl:"name" cty:"name"`
-	Columns []configColumn `hcl:"columns" cty:"columns"`
+	Name        string         `hcl:"name" cty:"name"`
+	Description string         `hcl:"description" cty:"description"`
+	Columns     []configColumn `hcl:"columns" cty:"columns"`
 }
 
 func (t configTable) AsPluginTable() *plugin.Table {
 	res := &plugin.Table{
-		Name: t.Name,
+		Name:        t.Name,
+		Description: t.Description,
 		List: &plugin.ListConfig{
 			Hydrate: t.buildListHydrate(),
 		}}
