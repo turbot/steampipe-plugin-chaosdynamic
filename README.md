@@ -14,7 +14,7 @@ Install the plugin with [Steampipe](https://steampipe.io):
 steampipe plugin install chaosdynamic
 ```
 
-Setup connection config($INSTALL_DIR/.steampipe/config):
+Update the connection config ($INSTALL_DIR/.steampipe/config/chaosdynamic.spc) as per your requirement, by default the connection config file will look as follows:
 
 ```hcl
 connection "chaosdynamic"{
@@ -22,6 +22,7 @@ connection "chaosdynamic"{
   tables = [
     {
       name    = "test1"
+      description = "Test table 1"
       columns = [
         {
           name = "c1"
