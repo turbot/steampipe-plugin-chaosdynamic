@@ -3,7 +3,7 @@
 Steampipe plugin to test aggregation of dynamic plugin connections.
 
 - **[Get started →](https://hub.steampipe.io/plugins/turbot/chaosdynamic)**
-- Community: [Slack Channel](https://steampipe.io/community/join)
+- Community: [Join #steampipe on Slack →](https://turbot.com/community/join)
 - Get involved: [Issues](https://github.com/turbot/steampipe-plugin-chaosdynamic/issues)
 
 ## Quick start
