@@ -1,10 +1,10 @@
 module github.com/turbot/steampipe-plugin-chaosdynamic
 
-go 1.19
+go 1.21
 
 require (
 	github.com/turbot/go-kit v0.5.0
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.2.0-rc.8
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.6.0-rc.8
 )
 
 require (
