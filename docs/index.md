@@ -73,7 +73,4 @@ from
   chaosdynamic.test1;
 ```
 
-## Get involved
-
-- Open source: https://github.com/turbot/steampipe-plugin-chaosdynamic
-- Community: [Join #steampipe on Slack →](https://turbot.com/community/join)
+)
