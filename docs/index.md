@@ -12,7 +12,7 @@ description: "Steampipe plugin to test aggregation of dynamic plugin connections
 
 Chaos Dynamic Plugin for testing aggregation of dynamic plugin connections with the craziest edge cases we can think of..
 
-[Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
+[Steampipe](https://steampipe.io) is an open-source zero-ETL engine to instantly query cloud APIs using SQL.
 
 For example:
 
@@ -73,7 +73,4 @@ from
   chaosdynamic.test1;
 ```
 
-## Get involved
-
-- Open source: https://github.com/turbot/steampipe-plugin-chaosdynamic
-- Community: [Join #steampipe on Slack →](https://turbot.com/community/join)
+)
