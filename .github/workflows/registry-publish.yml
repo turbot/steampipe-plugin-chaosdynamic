@@ -6,8 +6,8 @@ on:
       - "v*"
 
 jobs:
-  registry_publish_workflow:
-    uses: turbot/steampipe-workflows/.github/workflows/registry-publish.yml@main
-    secrets: inherit
-    with:
-      releaseTimeout: 60m
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dummy
+        run: echo "dummy"
