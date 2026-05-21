@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v6/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin"
 )
 
 type ChaosDynamicConfig struct {
@@ -143,10 +143,14 @@ func ConfigInstance() interface{} {
 }
 
 func getConfig(connection *plugin.Connection) ChaosDynamicConfig {
-	if connection == nil || connection.Config == nil {
+	if connection == nil {
 		return ChaosDynamicConfig{}
 	}
-	config, ok := connection.Config.(ChaosDynamicConfig)
+	raw := connection.GetConfig()
+	if raw == nil {
+		return ChaosDynamicConfig{}
+	}
+	config, ok := raw.(ChaosDynamicConfig)
 	if !ok {
 		return ChaosDynamicConfig{}
 	}
