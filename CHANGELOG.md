@@ -1,3 +1,10 @@
+## Unreleased
+
+_Dependencies_
+
+- Recompiled plugin with [steampipe-plugin-sdk v6.0.0](https://github.com/turbot/steampipe-plugin-sdk/blob/main/CHANGELOG.md). Migrated the `getConfig` helper from a direct `Connection.Config` field read to the v6 `Connection.GetConfig()` accessor.
+- Recompiled plugin with Go version `1.26`.
+
 ## v1.2.0 [2025-10-13]
 
 _Dependencies_
